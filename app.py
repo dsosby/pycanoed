@@ -1,6 +1,6 @@
 import os
 import pymongo
-from flask import Flask, g
+from flask import Flask, g, render_template
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -26,7 +26,7 @@ def teardown_request(exception):
 
 @app.route('/')
 def hello():
-    return r"pyCanoed<br/>DB is {} with collections {}".format(g.db, g.db.collection_names())
+    return render_template('common.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
