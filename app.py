@@ -26,7 +26,11 @@ def teardown_request(exception):
 
 @app.route('/')
 def hello():
-    return render_template('common.html')
+    count = "?"
+    if g.db:
+        count = g.db.posts.count()
+        posts = [dict(timestamp=post["timestamp"], entry=post["entry"]) for post in g.db.posts.find()]
+    return render_template('common.html', count=count, posts=posts)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

@@ -10,7 +10,7 @@
         <!--Canoe image should go here-->
         <aside>
             <p class="fraction">
-                <sup>1</sup>
+                <sup>{{count}}</sup>
                 of
                 <sub>20</sub>
             </p>
@@ -21,8 +21,16 @@
     </header>
 
     <article class="content">
-        <!--Content here-->
-        Lorem ipsum dolor sit amet...
+        {% if count == 0 %}
+            <h2>No entries yet. Check back later.</h2>
+        {% else %}
+            {% for post in posts %}
+            <h2>{{ post["timestamp"] }}</h2>
+            <p>
+                {{ post["entry"] }}
+            </p>
+            {% endfor %}
+        {% endif %}
     </article>
 
     <footer>
