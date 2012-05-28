@@ -84,6 +84,39 @@ header aside sub  {
     font-size: 20px;
 }
 
+header .menu  {
+    position: absolute;
+    top: 320px;
+    width: 98%;
+    text-align: right;
+
+    list-style-type: none;
+}
+
+header .menu li  {
+    display: inline;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+header .menu li:hover  {
+    background: rgba(255, 255, 255, 0.75);
+}
+
+header .menu li a  {
+    text-decoration: none;
+    color: #333333;
+}
+
 section.content  {
     margin: 0 auto 0 auto;
     width: 640px;

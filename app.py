@@ -32,6 +32,10 @@ def hello():
         posts = [dict(timestamp=post["timestamp"], entry=post["entry"]) for post in g.db.posts.find()]
     return render_template('common.html', count=count, posts=posts)
 
+@app.route('/about')
+def about():
+    return "About!"
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0',port=port)
