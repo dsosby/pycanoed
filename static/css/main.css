@@ -84,7 +84,7 @@ header aside sub  {
     font-size: 20px;
 }
 
-article.content  {
+section.content  {
     margin: 0 auto 0 auto;
     width: 640px;
 
@@ -93,7 +93,7 @@ article.content  {
     border-color: black;
 }
 
-article.content p  {
+section.content article  {
     margin: 0px;
     padding: 0.2em 1em 0.2em 1em;
 }
