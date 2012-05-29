@@ -34,7 +34,7 @@ def hello():
 
 @app.route('/about')
 def about():
-    return "About!"
+    return render_template('about.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

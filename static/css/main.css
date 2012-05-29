@@ -131,6 +131,18 @@ section.content article  {
     padding: 0.2em 1em 0.2em 1em;
 }
 
+section.content article.static  {
+    margin: 0px;
+    padding: 0.2em 1em 0.2em 1em;
+}
+
+section.content article.static p {
+    margin: 1em;
+    padding: 0.2em 1em 0.2em 1em;
+    text-align: justify;
+    text-justify: newspaper;
+}
+
 footer  {
     margin: 0 auto;
     width: 640px;
