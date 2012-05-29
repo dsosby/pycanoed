@@ -1,6 +1,6 @@
 {% extends('common.html') %}
 {% block content %}
-    {% if count == 0 %}
+    {% if header.count == 0 %}
         <h2>No entries yet. Check back later.</h2>
     {% else %}
         {% for post in posts %}
