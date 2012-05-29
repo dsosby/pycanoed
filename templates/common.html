@@ -14,7 +14,7 @@
         <!--Canoe image should go here-->
         <aside>
             <p class="fraction">
-                <sup>{{count}}</sup>
+                <sup>{{ header.count }}</sup>
                 of
                 <sub>20</sub>
             </p>
@@ -23,8 +23,11 @@
             </p>
         </aside>
         <ul class="menu">
-            <li><a href="{{ url_for('about') }}">What Is This?</a></li>
-            <li><a href="#post" id="post_button">Post</a></li>
+            {% for link in header.links %}
+                {% if link == "about" %}<li><a href="{{ url_for('about') }}">What Is This?</a></li>{% endif %}
+                {% if link == "index" %}<li><a href="/">All Posts</a></li>{% endif %}
+                {% if link == "post" %}<li><a href="#post" id="post_button">+</a></li>{% endif %}
+            {% endfor %}
         </ul>
     </header>
 

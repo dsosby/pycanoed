@@ -1,6 +1,6 @@
 import os
 import pymongo
-from flask import Flask, g, render_template
+from flask import Flask, g, render_template, request
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -12,6 +12,16 @@ def get_db():
     if db_name != None:
         return (pymongo.Connection(db_url),db_name)
     return (None,None)
+
+def get_header_info():
+    count = g.db.posts.count() if g.db else '?'
+    links = []
+    if request.path != '/about':
+        links.append('about')
+    if request.path != '/':
+        links.append('index')
+    links.append('post')
+    return dict(count=count, links=links)
 
 @app.before_request
 def before_request():
@@ -26,15 +36,13 @@ def teardown_request(exception):
 
 @app.route('/')
 def hello():
-    count = "?"
     if g.db:
-        count = g.db.posts.count()
         posts = [dict(timestamp=post["timestamp"], entry=post["entry"]) for post in g.db.posts.find()]
-    return render_template('index.html', count=count, posts=posts)
+    return render_template('index.html', header=get_header_info(), posts=posts)
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', header=get_header_info())
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
