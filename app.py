@@ -30,7 +30,7 @@ def hello():
     if g.db:
         count = g.db.posts.count()
         posts = [dict(timestamp=post["timestamp"], entry=post["entry"]) for post in g.db.posts.find()]
-    return render_template('common.html', count=count, posts=posts)
+    return render_template('index.html', count=count, posts=posts)
 
 @app.route('/about')
 def about():

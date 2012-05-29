@@ -29,18 +29,8 @@
     </header>
 
     <section class="content">
-        {% if count == 0 %}
-            <h2>No entries yet. Check back later.</h2>
-        {% else %}
-            {% for post in posts %}
-            <article class="post">
-                <h2>{{ post["timestamp"].strftime("%Y-%m-%d") }} - {{ post["title"] }}</h2>
-                <p>
-                    {{ post["entry"] }}
-                </p>
-            </article>
-            {% endfor %}
-        {% endif %}
+        {% block content %}
+        {% endblock %}
     </section>
 
     <footer>
