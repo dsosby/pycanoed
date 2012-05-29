@@ -143,6 +143,19 @@ section.content article.static p {
     text-justify: newspaper;
 }
 
+#post-form label  {
+    display: block;
+	float: left;
+	width: 100px;
+	text-align: right;
+
+    margin-right: 1em;
+}
+
+#post-form input {
+	width: 400px;
+}
+
 footer  {
     margin: 0 auto;
     width: 640px;

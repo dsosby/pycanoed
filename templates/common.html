@@ -3,7 +3,7 @@
     <title>pyCanoed</title>
     <link rel="stylesheet" type="text/css" href="static/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/main.css"/>
-    <link rel="stylehseet" type="text/css" href="static/css/themename/jquery-ui-1.8.20.custom.css"/>	
+    <link rel="stylesheet" type="text/css" href="static/css/smoothness/jquery-ui-1.8.20.custom.css"/>	
     <script src="static/js/jquery-1.7.2.min.js"></script>
     <script src="static/js/jquery-ui-1.8.20.custom.min.js"></script>
     <script src="static/js/site.js"></script>
@@ -26,7 +26,7 @@
             {% for link in header.links %}
                 {% if link == "about" %}<li><a href="{{ url_for('about') }}">What Is This?</a></li>{% endif %}
                 {% if link == "index" %}<li><a href="/">All Posts</a></li>{% endif %}
-                {% if link == "post" %}<li><a href="#post" id="post_button">+</a></li>{% endif %}
+                {% if link == "post" %}<li><a href="#post" id="post-button">+</a></li>{% endif %}
             {% endfor %}
         </ul>
     </header>
