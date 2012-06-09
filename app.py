@@ -35,7 +35,7 @@ def teardown_request(exception):
         g.dbconn.disconnect()
 
 @app.route('/')
-def hello():
+def index():
     if g.db:
         posts = [dict(timestamp=post["timestamp"], entry=post["entry"]) for post in g.db.posts.find()]
     return render_template('index.html', header=get_header_info(), posts=posts)
@@ -43,6 +43,10 @@ def hello():
 @app.route('/about')
 def about():
     return render_template('about.html', header=get_header_info())
+
+@app.route('/post')
+def post():
+    return render_template('post.html', header=get_header_info())
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
