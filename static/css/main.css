@@ -143,6 +143,10 @@ section.content article.static p {
     text-justify: newspaper;
 }
 
+#post-form  {
+    display: none;
+}
+
 #post-form label  {
     display: block;
 	float: left;
