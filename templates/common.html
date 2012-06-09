@@ -26,7 +26,7 @@
             {% for link in header.links %}
                 {% if link == "about" %}<li><a href="{{ url_for('about') }}">What Is This?</a></li>{% endif %}
                 {% if link == "index" %}<li><a href="{{ url_for('index') }}">All Posts</a></li>{% endif %}
-                {% if link == "post" %}<li><a href="{{url_for('post') }}" id="post-button">+</a></li>{% endif %}
+                {# {% if link == "post" %}<li><a href="{{url_for('post') }}" id="post-button">+</a></li>{% endif %} #}
             {% endfor %}
         </ul>
     </header>
