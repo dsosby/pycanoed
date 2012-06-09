@@ -2,15 +2,19 @@
 {% extends('common.html') %}
 {% block content %}
 <article class="static">
-        <form action="{{ url_for('post') }}" method="post">
+        <form id="post-form" action="{{ url_for('post') }}" method="post">
             <fieldset>
-            <label for="post-password">Password</label>
-            <input type="password" name="password" id="post-password" class="text ui-widget-content ui-corner-all" /><br/>
-            <div id="post-form">
+            <div id="post-password-field">
+                <h3 class="password-label">Password</h3>
+                <label for="post-password">&nbsp</label>
+                <input type="password" name="password" id="post-password" /><br/>
+            </div>
+            <div id="post-form-fields">
                     <label for="post-title">Title</label>
-                    <input type="text" name="title" id="post-title" class="text ui-widget-content ui-corner-all" /><br/>
+                    <input type="text" name="title" id="post-title" /><br/>
                     <label for="post-entry">Entry</label>
-                    <input type="text" name="entry" id="post-entry" class="text ui-widget-content ui-corner-all" /><br/>
+                    <textarea name="entry" id="post-entry" rows=10></textarea><br/>
+                    <label>&nbsp;</label>
                     <input type="submit" value="Post"/>
             </div>
             </fieldset>
