@@ -117,6 +117,13 @@ header .menu li a  {
     color: #333333;
 }
 
+.flash-message  {
+    width: 100%;
+    padding: 1em 6em 1em 6em;
+    font-weight: bold;
+    text-decoration: small-caps;
+}
+
 section.content  {
     margin: 0 auto 0 auto;
     width: 640px;
