@@ -1,6 +1,7 @@
+import hashlib
 import os
 import pymongo
-from flask import Flask, g, render_template, request
+from flask import Flask, g, render_template, request, jsonify
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -47,6 +48,16 @@ def about():
 @app.route('/post')
 def post():
     return render_template('post.html', header=get_header_info())
+
+@app.route('/verify')
+def verify():
+    arg_pass  = request.args.get("password", type=str)
+    return jsonify(valid=do_verify(arg_pass))
+
+def do_verify(password):
+    hash_pass = hashlib.sha1(password + app.config['SECRET_KEY']).hexdigest()
+    valid     = hash_pass == app.config['VALID_PASSWORD']
+    return valid
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
