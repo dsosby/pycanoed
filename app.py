@@ -4,6 +4,7 @@ import os
 import pymongo
 from flask import Flask, g, render_template, request, jsonify, \
         flash, redirect, url_for
+from markdown import markdown
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -42,7 +43,7 @@ def teardown_request(exception):
 @app.route('/')
 def index():
     if g.db:
-        posts = [post for post in g.db.posts.find()]
+        posts = [markdown_post(post) for post in g.db.posts.find()]
     return render_template('index.html', header=get_header_info(), posts=posts)
 
 @app.route('/about')
@@ -85,6 +86,11 @@ def add_entry(title, entry, timestamp=None):
         added = True
 
     return added
+
+def markdown_post(post):
+    """Takes a post dict, applies markdown to the entry, and returns the modified post"""
+    post['entry'] = markdown(post['entry'].replace("\n","  \n"), output="html5")
+    return post
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

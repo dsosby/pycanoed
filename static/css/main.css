@@ -138,6 +138,18 @@ section.content article  {
     padding: 0.2em 1em 0.2em 1em;
 }
 
+section.content article post  {
+
+}
+
+section.content article post h2 {
+
+}
+
+section.content article post p {
+
+}
+
 section.content article.static  {
     margin: 0px;
     padding: 0.2em 1em 0.2em 1em;
