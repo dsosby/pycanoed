@@ -55,8 +55,9 @@ def post():
     if request.method == 'POST':
         if verify_password(request.values.get('password', type=str)):
             title = request.values.get('title', "I Canoed!", type=str)
+            timestampstr = request.values.get('timestamp', type=str)
             entry = request.values.get('entry', "...but I didn't care enough to write about it.", type=str)
-            if add_entry(title, entry):
+            if add_entry(title, entry, timestampstr):
                 flash("Entry added")
                 return redirect(url_for('index'))
             else:
@@ -77,11 +78,17 @@ def verify_password(password):
     valid     = hash_pass == app.config['VALID_PASSWORD']
     return valid
 
-def add_entry(title, entry, timestamp=None):
+def add_entry(title, entry, timestampstr=None):
     added = False
     if g.db:
-        if not timestamp:
+        if not timestampstr:
             timestamp = datetime.datetime.now()
+        else:
+            try:
+                timestamp = datetime.datetime.strptime(timestampstr, "%m/%d/%Y")
+            except:
+                timestamp = datetime.datetime.now()
+
         g.db.posts.insert(dict(title=title, entry=entry, timestamp=timestamp))
         added = True
 

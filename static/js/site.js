@@ -9,5 +9,6 @@ $(function()  {
         });
     });
 
+    $("#post-timestamp").datepicker();
     $("#post-password").focus();
 });
