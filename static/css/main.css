@@ -133,21 +133,35 @@ section.content  {
     border-color: black;
 }
 
-section.content article  {
-    margin: 0px;
-    padding: 0.2em 1em 0.2em 1em;
+section.content article.post  {
+    padding: 1em;
 }
 
-section.content article post  {
-
+article.post  {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #CCCCCC;
 }
 
-section.content article post h2 {
-
+article.odd  {
+    background-color: rgba(255,255,255,0.3);
 }
 
-section.content article post p {
+article.even  {
+    background-color: rgba(255,255,255,0.15);
+}
 
+article.post h2 {
+    font: 14pt sans-serif;
+    text-shadow: white 0.1em 0.1em 0.1em;
+    font-weight: bold;
+}
+
+article.post h6 {
+    color: #333333;
+    font: 8pt sans-serif;
+    margin-top: -0.3em;
+    text-shadow: white 0.1em 0.1em 0.1em;
 }
 
 section.content article.static  {
