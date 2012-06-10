@@ -11,7 +11,10 @@
 <body>
     <header>
         <h1>pyCanoed</h1>
-        <!--Canoe image should go here-->
+        <div id="canoe-progress">&nbsp;</div>
+        <script>
+            set_canoe_percent({{ header.count / 20 }});
+        </script>
         <aside>
             <p class="fraction">
                 <sup>{{ header.count }}</sup>
