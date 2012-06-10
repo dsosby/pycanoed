@@ -158,6 +158,7 @@ section.content  {
 section.content img  {
     width: 50%;
     float: right;
+    margin: 5px;
 
     border: 1px solid black;
     -webkit-border-radius: 5px;
