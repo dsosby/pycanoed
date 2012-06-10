@@ -84,6 +84,19 @@ header aside sub  {
     font-size: 20px;
 }
 
+header #done-label  {
+    display: none;
+    color: #C8FFC8;
+    font-weight: 900;
+    font-size: 30px;
+    font-style: italic;
+    letter-spacing: -1px;
+    text-shadow: black 2px 2px 2px;
+
+    margin-top: -25px;
+    padding-left: 140px;
+}
+
 header .menu  {
     position: absolute;
     top: 320px;

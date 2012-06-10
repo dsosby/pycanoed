@@ -11,11 +11,12 @@
 <body>
     <header>
         <h1>pyCanoed</h1>
+        <h2 id="done-label">Earned!</h2>
         <div id="canoe-progress">&nbsp;</div>
         <script>
             set_canoe_percent({{ header.count / 20 }});
         </script>
-        <aside>
+        <aside id="fraction-display">
             <p class="fraction">
                 <sup>{{ header.count }}</sup>
                 of

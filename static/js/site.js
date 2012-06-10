@@ -18,4 +18,9 @@ function set_canoe_percent(percent)  {
     var max_width = $("header").width();
     var width = Math.min(percent, 1.0) * max_width;
     $("#canoe-progress").width(width + "px");
+
+    if (percent >= 1.0)  {
+        $("#fraction-display").hide();
+        $("#done-label").show();
+    }
 }
