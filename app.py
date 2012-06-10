@@ -58,7 +58,6 @@ def post():
             timestampstr = request.values.get('timestamp', type=str)
             entry = request.values.get('entry', "...but I didn't care enough to write about it.", type=str)
             if add_entry(title, entry, timestampstr):
-                flash("Entry added")
                 return redirect(url_for('index'))
             else:
                 flash("Error inserting")
