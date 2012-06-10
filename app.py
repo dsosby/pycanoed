@@ -43,7 +43,7 @@ def teardown_request(exception):
 @app.route('/')
 def index():
     if g.db:
-        posts = [markdown_post(post) for post in g.db.posts.find()]
+        posts = [markdown_post(post) for post in g.db.posts.find().sort('timestamp')]
     return render_template('index.html', header=get_header_info(), posts=posts)
 
 @app.route('/about')
