@@ -133,6 +133,20 @@ section.content  {
     border-color: black;
 }
 
+section.content img  {
+    width: 50%;
+    float: right;
+
+    border: 1px solid black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+section.content div.clearer  {
+    clear: both;
+}
+
 section.content article.post  {
     padding: 1em;
 }
